@@ -1,0 +1,8 @@
+<form method="put" action="/users/<%= @user.id %>">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	First Name: <input type="text" name="first" value="<%= @user.first_name %>"><br>
+	Last Name: <input type="text" name="last" value="<%= @user.last_name %>"><br>
+	email: <input type="text" name="email" value="<%= @user.email %>"><br>
+	age <input type="text" name="age" value="<%= @user.age %>"><br>
+	<input type='submit' value='Edit'>
+</form>

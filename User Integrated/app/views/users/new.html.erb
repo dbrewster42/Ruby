@@ -1,0 +1,8 @@
+<form method="post" action="/users">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	First Name: <input type="text" name="first" ><br>
+	Last Name: <input type="text" name="last"><br>
+	email: <input type="text" name="email"><br>
+	age <input type="text" name="age"><br>
+	<input type='submit' value='Create'>
+</form>
