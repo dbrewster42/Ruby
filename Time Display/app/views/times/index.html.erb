@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time</title>	
+</head>
+<body>
+	<h4>The current time and date: </h4>
+	<div id="clock">
+		<!-- <h1><%= @date %></h1> -->
+		<h1><%= @time.strftime("%b %d, %Y") %></h1>
+		<h1><%= @time.strftime("%I:%M %p") %></h1>
+	</div>
+</body>
+</html>
+
