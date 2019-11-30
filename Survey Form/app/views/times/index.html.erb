@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time</title>	
+</head>
+<body>
+	<h4>The current time and date: </h4>
+	<div id="clock">
+		
+		<h1><%= @time.strftime("%b %d, %Y") %></h1>
+		<h1><%= @time.strftime("%I:%M %p") %></h1>
+	</div>
+	<br>
+ 	<form method="post" action="/">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		Your name: <input type="text" name="user[name]"><br>
+		Dojo Location <select name="user[location]">
+			<option value="Dallas">Dallas</option>
+			<option value="Seattle">Seattle</option>
+			<option value="Mountain View">Mountain View</option>
+		</select><br>
+		Comment: <input type="text" name="user[comment]"><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+

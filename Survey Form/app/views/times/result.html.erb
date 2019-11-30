@@ -1,0 +1,8 @@
+<p>Thanks for submitting this form! You have submitted this form <%= @times %> times now</p>
+<h3>Submitted Information</h3>
+
+<% @infos.each do |i| %>
+<p class="boss">Name: <%= i.name %></p>
+<p>Location: <%= i.location %></p>
+<p>Comment: <%= i.comment %></p>
+<% end %>
