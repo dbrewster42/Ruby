@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>	
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'app1/style.css' %}"> -->
+</head>
+<body>
+	<h3>Your Gold:</h3>
+	<h3 id='gold'><%= @gold %></h3>
+	<div>
+		<div class="box">
+			<h2>Farm</h2>
+			<p>(earns 10-20 golds)</p>
+			<form action="/process_money" method="post">
+			 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			 	<button type="submit" name="move" value="farm">Find Gold!</button>
+			</form>
+		</div>
+		<div class="box">
+			<h2>Cave</h2>
+			<p>(earns 5-10 golds)</p>
+			<form action="/process_money" method="post">
+			 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			 	<button type="submit" name="move" value="cave">Find Gold!</button>
+			</form>
+		</div>
+		<div class="box">
+			<h2>House</h2>
+			<p>(earns 2-5 golds)</p>
+			<form action="/process_money" method="post">
+			 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			 	<button type="submit" name="move" value="house">Find Gold!</button>
+			</form>
+		</div>
+		<div class="box">
+			<h2>Casino</h2>
+			<p>(earns/takes 0-50 golds)</p>
+			<form action="/process_money" method="post">
+			 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			 	<button type="submit" name="move" value="casino">Find Gold!</button>
+			</form>
+		</div>
+	</div>
+	<p>Activities</p>
+	<div id="activities">		
+		<% @logs.each do |log| %>
+			<% if log.include?("Earned") %>
+				<p class="win"><%= @log %></p>	
+			<% else %>
+				<p class="lose"></p>
+			<% end %>
+		<% end %>		
+	</div>
+	
+</body>
+</html>
