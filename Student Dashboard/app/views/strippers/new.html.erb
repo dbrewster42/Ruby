@@ -1,0 +1,12 @@
+<h1>Strippers#new</h1>
+<% if flash[:alert] %>
+	<% flash[:alert].each do |error| %>
+	<p>	<%= error %> </p>
+	<% end %>
+<% end %>
+<form action="/clubs/<%= @club.id %>/strippers" method="post">	
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">	
+	Name : <input type="text" name="stripper[name]">
+	Talent : <input type="text" name="stripper[talent]">	
+	<input type="submit" value="Create">
+</form>

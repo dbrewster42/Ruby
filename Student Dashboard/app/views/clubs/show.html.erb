@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clubs</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<h1><%= @club.name %></h1>
+	<h3>City: <%= @club.city %></h3>
+	<h3>Rating: <%= @club.rating %></h3>
+	<h4>Strippers</h4>
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Talent</th>
+      <th scope="col">Actions</th>     
+    </tr>
+  </thead>
+  <tbody>
+  	<% @strippers.each do |strip| %>
+    <tr>     
+      <td><%= strip.name %></td>
+      <td><%= strip.talent %></td>
+      <td><a href="<%= @club.id %>/strippers/<%= strip.id %>">Show</a>  <a href="/clubs/<%= @club.id %>/strippers/<%= strip.id %>/edit">Edit</a></td>
+    </tr>
+    <% end %>    
+  </tbody>
+</table>
+	<a href="<%= @club.id %>/strippers/new">Add a new Stripper</a>
+</body>
+</html>

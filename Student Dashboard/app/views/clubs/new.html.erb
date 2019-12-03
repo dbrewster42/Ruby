@@ -1,0 +1,19 @@
+<h1>Clubs#new</h1>
+<% if flash[:alert] %>
+	<% flash[:alert].each do |error| %>
+	<p>	<%= error %> </p>
+	<% end %>
+<% end %>
+<form action="/clubs" method="post">	
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	Name : <input type="text" name="club[name]">
+	City : <input type="text" name="club[city]">
+	Rating <select name="club[rating]">	
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	<input type="submit" value="Create">
+</form>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Strip Clubs</h1>
+	<% if flash[:alert] %>
+		<%= flash[:alert] %>
+			
+	<% end %>
+	<table class="table table-striped table-dark">
+  		<thead>
+   			<tr>
+     		<th scope="col">ID</th>
+	      	<th scope="col">Name</th>
+	      	<th scope="col">City</th>
+	      	<th scope="col">Rating</th>
+	      	<th scope="col">Actions</th>
+	    	</tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @clubs.each do |club| %>
+	   	 	<tr> 	   
+	    	  <th scope="row"><%= club.id %></th>
+	    	  <td><%= club.name %></td>
+	    	  <td><%= club.city %></td>
+	    	  <td><%= club.rating %></td>
+	    	  <td><a href="clubs/<%= club.id %>">Show</a><a href="clubs/<%= club.id %>/edit">Edit</a>  <a href="clubs/<%= club.id %>" data-method="delete">Delete</a>	</td>
+    		</tr>
+    		<% end %>   
+  			</tbody>
+		</table>
+		<br>	
+		<a href="/clubs/new">Add a new club</a>
+</body>
+</html>
+
